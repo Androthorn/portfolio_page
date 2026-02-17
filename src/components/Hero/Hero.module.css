@@ -80,10 +80,7 @@
 
 /* Hero media area (designed gradient + ring) */
 .imageContainer {
-    background:
-        radial-gradient(120% 120% at 0% 0%, rgba(47, 143, 107, 0.12) 0%, rgba(47, 143, 107, 0.00) 55%),
-        linear-gradient(180deg, var(--green-50), var(--green-100));
-    border: 1px solid var(--color-border);
+
     border-radius: 20px;
     padding: var(--spacing-lg);
     display: flex;

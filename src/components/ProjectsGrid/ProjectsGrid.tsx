@@ -14,14 +14,16 @@ const ProjectsGrid = () => {
         },
         {
             id: '2',
-            title: 'Project 1...',
-            description: 'Quis aut a Lorem labore id, ut vitae lorem ipsum lorem',
-            meta: 'Coming soon',
+            title: 'Most recent published paper',
+            description: 'AI-Driven Workload Migration Framework for Multi-Cluster Environments',
+            imageUrl: '/wasp-article.png',
+            link: 'https://ieeexplore.ieee.org/abstract/document/11331470',
+            meta: 'IEEE Xplore · 2025',
         },
         {
             id: '3',
-            title: 'And another one',
-            description: 'Quis aut a labore labore id, ut vitae lorem ipsum',
+            title: 'In construction',
+            description: 'Prosopis juliflora, love and hate',
             meta: 'Coming soon',
         },
     ];

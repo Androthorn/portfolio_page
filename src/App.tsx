@@ -1,5 +1,6 @@
 import Hero from './components/Hero/Hero';
 import ProjectsGrid from './components/ProjectsGrid/ProjectsGrid';
+import About from './components/About/About';
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="app">
       <Hero />
       <ProjectsGrid />
+      <About />
     </div>
   );
 }
