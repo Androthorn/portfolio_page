@@ -1,0 +1,118 @@
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    min-height: 80vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.name {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin: 0;
+}
+
+.title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: all var(--transition-base);
+    border: none;
+}
+
+.buttonPrimary {
+    background-color: var(--color-button-primary);
+    color: #ffffff;
+}
+
+.buttonPrimary:hover {
+    background-color: var(--color-button-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.buttonSecondary {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+.buttonSecondary:hover {
+    background-color: var(--color-card-bg);
+    transform: translateY(-2px);
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileImage {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        padding: var(--spacing-xl) var(--spacing-md);
+        min-height: auto;
+    }
+
+    .title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .imageContainer {
+        order: -1;
+    }
+
+    .profileImage {
+        max-width: 300px;
+    }
+}
