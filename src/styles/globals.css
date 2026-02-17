@@ -82,7 +82,11 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text-primary);
-  background-color: var(--color-background);
+  background:
+    radial-gradient(1000px 600px at 80% 0%,
+      rgba(47, 143, 107, 0.06),
+      transparent 60%),
+    var(--green-50);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -95,7 +99,7 @@ h5,
 h6 {
   line-height: 1.05;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: var(--color-text-primary);
 }
 

@@ -1,7 +1,5 @@
 .projectsSection {
-    padding: var(--spacing-3xl) 0;
-    background: linear-gradient(180deg, var(--green-50), var(--green-100));
-    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-xl) 0;
 }
 
 .projectsInner {
@@ -9,12 +7,19 @@
     margin: 0 auto;
 }
 
+.sectionTitle {
+    font-size: var(--font-size-2xl);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-xl);
+    color: var(--neutral-900);
+}
+
 .projectsPanel {
-    background: var(--color-surface-2);
-    border: 1px solid var(--color-border);
-    border-radius: 24px;
+    background: linear-gradient(180deg, var(--green-50), var(--green-100));
+    border: 1px solid rgba(15, 46, 35, 0.08);
+    border-radius: 28px;
     padding: var(--spacing-2xl);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 20px 50px rgba(7, 26, 19, 0.05);
 }
 
 .grid {
@@ -36,7 +41,7 @@
 
     .projectsPanel {
         padding: var(--spacing-lg);
-        border-radius: 16px;
+        border-radius: 20px;
     }
 
     .grid {

@@ -28,6 +28,7 @@ const ProjectsGrid = () => {
         <section className={styles.projectsSection}>
             <div className={styles.projectsInner}>
                 <div className={styles.projectsPanel}>
+                    <h2 className={styles.sectionTitle}>Selected Work</h2>
                     <div className={styles.grid}>
                         {projects.map((project, index) => (
                             <ProjectCard
