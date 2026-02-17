@@ -26,14 +26,18 @@ const ProjectsGrid = () => {
 
     return (
         <section className={styles.projectsSection}>
-            <div className={styles.grid}>
-                {projects.map((project, index) => (
-                    <ProjectCard
-                        key={project.id}
-                        project={project}
-                        index={index}
-                    />
-                ))}
+            <div className={styles.projectsInner}>
+                <div className={styles.projectsPanel}>
+                    <div className={styles.grid}>
+                        {projects.map((project, index) => (
+                            <ProjectCard
+                                key={project.id}
+                                project={project}
+                                index={index}
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );

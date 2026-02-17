@@ -1,7 +1,20 @@
 .projectsSection {
-    max-width: 1200px;
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--green-50), var(--green-100));
+    border-top: 1px solid var(--color-border);
+}
+
+.projectsInner {
+    width: min(1100px, calc(100% - 2 * var(--spacing-xl)));
     margin: 0 auto;
-    padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+.projectsPanel {
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-sm);
 }
 
 .grid {
@@ -18,7 +31,12 @@
 
 @media (max-width: 640px) {
     .projectsSection {
-        padding: var(--spacing-xl) var(--spacing-md);
+        padding: var(--spacing-xl) 0;
+    }
+
+    .projectsPanel {
+        padding: var(--spacing-lg);
+        border-radius: 16px;
     }
 
     .grid {

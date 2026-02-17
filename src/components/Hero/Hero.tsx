@@ -43,10 +43,10 @@ const Hero = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
                 >
-                    <button className={`${styles.button} ${styles.buttonPrimary}`}>
+                    <button className={styles.buttonPrimary}>
                         My projects
                     </button>
-                    <button className={`${styles.button} ${styles.buttonSecondary}`}>
+                    <button className={styles.buttonSecondary}>
                         About me
                     </button>
                 </motion.div>

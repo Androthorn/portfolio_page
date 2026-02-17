@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-3xl);
     align-items: center;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: var(--spacing-3xl) var(--spacing-lg);
     min-height: 80vh;
@@ -25,13 +25,14 @@
     font-size: var(--font-size-3xl);
     font-weight: 700;
     margin: 0;
-    line-height: 1.1;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
 }
 
 .description {
     font-size: var(--font-size-base);
     color: var(--color-text-secondary);
-    max-width: 500px;
+    max-width: 60ch;
     line-height: 1.6;
 }
 
@@ -41,38 +42,50 @@
     margin-top: var(--spacing-md);
 }
 
-.button {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: var(--radius-md);
+/* Modern buttons */
+.buttonPrimary {
+    background: var(--color-accent);
+    color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 10px 14px;
     font-size: var(--font-size-base);
     font-weight: 500;
-    transition: all var(--transition-base);
-    border: none;
-}
-
-.buttonPrimary {
-    background-color: var(--color-button-primary);
-    color: #ffffff;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
 }
 
 .buttonPrimary:hover {
-    background-color: var(--color-button-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    background: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .buttonSecondary {
-    background-color: transparent;
+    background: rgba(255, 255, 255, 0.65);
     color: var(--color-text-primary);
     border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    backdrop-filter: blur(8px);
+    transition: transform var(--transition-base), background var(--transition-base);
 }
 
 .buttonSecondary:hover {
-    background-color: var(--color-card-bg);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
 }
 
+/* Hero media area (designed gradient + ring) */
 .imageContainer {
+    background:
+        radial-gradient(120% 120% at 0% 0%, rgba(47, 143, 107, 0.12) 0%, rgba(47, 143, 107, 0.00) 55%),
+        linear-gradient(180deg, var(--green-50), var(--green-100));
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: var(--spacing-lg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,10 +93,16 @@
 
 .profileImage {
     width: 100%;
-    max-width: 400px;
+    max-width: 340px;
     height: auto;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     object-fit: cover;
+    box-shadow: var(--shadow-md);
+}
+
+.profileImage:focus-visible {
+    outline: 3px solid rgba(47, 143, 107, 0.35);
+    outline-offset: 4px;
 }
 
 /* Responsive Design */
@@ -103,7 +122,8 @@
         flex-direction: column;
     }
 
-    .button {
+    .buttonPrimary,
+    .buttonSecondary {
         width: 100%;
         text-align: center;
     }
@@ -113,6 +133,6 @@
     }
 
     .profileImage {
-        max-width: 300px;
+        max-width: 255px;
     }
 }
