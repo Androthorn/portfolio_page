@@ -1,7 +1,31 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './Hero.module.css';
 
 const Hero = () => {
+    const { t } = useLanguage();
+
+    const smoothScrollTo = (id: string) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const target = el.getBoundingClientRect().top + window.scrollY;
+        const start = window.scrollY;
+        const distance = target - start;
+        const duration = 900;
+        let startTime: number | null = null;
+
+        const ease = (t: number) => 1 - Math.pow(1 - t, 3);
+
+        const step = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            window.scrollTo(0, start + distance * ease(progress));
+            if (progress < 1) requestAnimationFrame(step);
+        };
+
+        requestAnimationFrame(step);
+    };
+
     return (
         <motion.section
             className={styles.hero}
@@ -25,7 +49,7 @@ const Hero = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
                 >
-                    Systems-minded engineer building reliable, practical software.
+                    {t('heroTitle')}
                 </motion.h2>
 
                 <motion.p
@@ -34,7 +58,7 @@ const Hero = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.6 }}
                 >
-                    Computer Science undergrad focused on distributed systems, AI-assisted reasoning, and production-grade backend architecture. Currently building and studying how systems fail and how to design them better.
+                    {t('heroDescription')}
                 </motion.p>
 
                 <motion.div
@@ -43,11 +67,11 @@ const Hero = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
                 >
-                    <button className={styles.buttonPrimary}>
-                        My projects
+                    <button className={styles.buttonPrimary} onClick={() => smoothScrollTo('projects')}>
+                        {t('heroButtonProjects')}
                     </button>
-                    <button className={styles.buttonSecondary}>
-                        About me
+                    <button className={styles.buttonSecondary} onClick={() => smoothScrollTo('about')}>
+                        {t('heroButtonAbout')}
                     </button>
                 </motion.div>
             </div>

@@ -1,20 +1,15 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './About.module.css';
 
-const skills = {
-    Backend: ['Node.js', 'TypeScript', 'Java', 'Python'],
-    Frontend: ['Angular', 'Flutter'],
-    'Cloud & Infrastructure': ['Docker', 'Kubernetes', 'Supabase'],
-    Data: ['PostgreSQL'],
-};
+const skillItems = {
+    skillBackend: ['Node.js', 'TypeScript', 'Java', 'Python'],
+    skillFrontend: ['Angular', 'Flutter'],
+    skillCloud: ['Docker', 'Kubernetes', 'Supabase'],
+    skillData: ['PostgreSQL'],
+} as const;
 
-const focusAreas = [
-    'Backend Architecture & API Design',
-    'Distributed Systems Thinking',
-    'Cloud-Native & Kubernetes Environments',
-    'Decision-Support and Observability Tools',
-    'Systems Design Trade-offs',
-];
+const focusKeys = ['focus1', 'focus2', 'focus3', 'focus4', 'focus5'] as const;
 
 const contacts = [
     { label: 'GitHub', url: 'https://github.com/androthorn', icon: 'github' },
@@ -24,6 +19,8 @@ const contacts = [
 ];
 
 const About = () => {
+    const { t } = useLanguage();
+
     return (
         <section className={styles.aboutSection} id="about">
             <div className={styles.aboutInner}>
@@ -34,7 +31,7 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    About
+                    {t('aboutTitle')}
                 </motion.h2>
 
                 <div className={styles.grid}>
@@ -46,33 +43,15 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.1, duration: 0.5 }}
                     >
-                        <p>
-                            I'm a Computer Science undergraduate interested in building reliable
-                            backend systems and exploring how software behaves under real-world
-                            constraints. My work is driven less by chasing trends and more by
-                            understanding trade-offs — performance vs. simplicity, automation vs.
-                            safety, and scalability vs. clarity.
-                        </p>
-                        <p>
-                            Recently, I've been involved in research-oriented projects around
-                            hybrid Kubernetes environments and agent-based reasoning for workload
-                            migration. These experiences pushed me to think beyond implementation
-                            details and focus on system design, experimentation, and building
-                            tools that people can trust and reason about.
-                        </p>
-                        <p>
-                            I'm still growing as an engineer, especially in areas like algorithms
-                            and live problem solving, but I value curiosity, consistency, and
-                            clear communication. My goal is to keep building practical systems
-                            while developing a deeper understanding of distributed and
-                            cloud-native architectures.
-                        </p>
+                        <p>{t('bio1')}</p>
+                        <p>{t('bio2')}</p>
+                        <p>{t('bio3')}</p>
 
                         <div className={styles.focusAreas}>
-                            <h3 className={styles.subsectionTitle}>Professional Focus</h3>
+                            <h3 className={styles.subsectionTitle}>{t('focusTitle')}</h3>
                             <ul className={styles.focusList}>
-                                {focusAreas.map((area) => (
-                                    <li key={area} className={styles.focusItem}>{area}</li>
+                                {focusKeys.map((key) => (
+                                    <li key={key} className={styles.focusItem}>{t(key)}</li>
                                 ))}
                             </ul>
                         </div>
@@ -88,10 +67,12 @@ const About = () => {
                     >
                         {/* Skills */}
                         <div className={styles.skillsBlock}>
-                            <h3 className={styles.subsectionTitle}>Tech Stack</h3>
-                            {Object.entries(skills).map(([category, items]) => (
-                                <div key={category} className={styles.skillCategory}>
-                                    <span className={styles.skillCategoryLabel}>{category}</span>
+                            <h3 className={styles.subsectionTitle}>{t('techStackTitle')}</h3>
+                            {Object.entries(skillItems).map(([categoryKey, items]) => (
+                                <div key={categoryKey} className={styles.skillCategory}>
+                                    <span className={styles.skillCategoryLabel}>
+                                        {t(categoryKey as keyof typeof skillItems)}
+                                    </span>
                                     <div className={styles.skillTags}>
                                         {items.map((skill) => (
                                             <span key={skill} className={styles.skillTag}>{skill}</span>
@@ -103,18 +84,13 @@ const About = () => {
 
                         {/* Education */}
                         <div className={styles.educationBlock}>
-                            <h3 className={styles.subsectionTitle}>Education</h3>
+                            <h3 className={styles.subsectionTitle}>{t('educationTitle')}</h3>
                             <div className={styles.educationItem}>
-                                <span className={styles.degree}>B.Sc. in Computer Science</span>
-                                <span className={styles.school}>Federal University of Campina Grande (UFCG)</span>
-                                <span className={styles.graduation}>Expected Graduation: 2027</span>
+                                <span className={styles.degree}>{t('degree')}</span>
+                                <span className={styles.school}>{t('school')}</span>
+                                <span className={styles.graduation}>{t('graduation')}</span>
                             </div>
-                            <p className={styles.educationNote}>
-                                Academic focus includes distributed systems, software architecture,
-                                and backend engineering. Participation in research and technical
-                                writing involving hybrid cloud environments and workload migration
-                                strategies.
-                            </p>
+                            <p className={styles.educationNote}>{t('educationNote')}</p>
                         </div>
                     </motion.div>
                 </div>
