@@ -1,26 +1,14 @@
 .card {
-    background: #fff;
-    border: 1px solid rgba(15, 46, 35, 0.08);
-    border-radius: 20px;
-    padding: var(--spacing-lg);
-    box-shadow: 0 4px 12px rgba(7, 26, 19, 0.04);
+    background: linear-gradient(180deg, var(--green-50), #ffffff);
+    border: 1px solid rgba(15, 46, 35, 0.06);
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(7, 26, 19, 0.05);
+    overflow: hidden;
     cursor: pointer;
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    transition: all 250ms ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: "";
-    display: block;
-    height: 4px;
-    border-radius: 20px 20px 0 0;
-    background: var(--green-500);
-    margin: calc(-1 * var(--spacing-lg)) calc(-1 * var(--spacing-lg)) var(--spacing-sm) calc(-1 * var(--spacing-lg));
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
 }
 
 .card:hover {
@@ -29,10 +17,55 @@
     border-color: rgba(47, 143, 107, 0.25);
 }
 
+/* Zone 1: Visual header */
+.visual {
+    background:
+        radial-gradient(500px 200px at 50% 0%,
+            rgba(47, 143, 107, 0.12),
+            transparent 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.visual:has(.preview) {
+    padding: 0;
+    min-height: auto;
+}
+
+.visual:has(.icon) {
+    padding: var(--spacing-xl);
+}
+
+.icon {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.preview {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Zone 2: Content body */
+.content {
+    padding: 0 var(--spacing-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
 .title {
     font-size: var(--font-size-lg);
     font-weight: 600;
     margin: 0;
+    color: var(--color-text-primary);
 }
 
 .description {
@@ -40,4 +73,24 @@
     color: var(--color-text-secondary);
     line-height: 1.5;
     margin: 0;
+}
+
+/* Zone 3: Meta footer */
+.meta {
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-500);
+    margin-top: auto;
+}
+
+@media (max-width: 640px) {
+    .visual {
+        min-height: 120px;
+        padding: var(--spacing-lg);
+    }
+
+    .icon {
+        width: 64px;
+        height: 64px;
+    }
 }
